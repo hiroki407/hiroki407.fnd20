@@ -209,8 +209,8 @@ checkAnswer.innerText = "はずれです。ちゃんと見た!?!"
 } 
 }
 
-document.getElementById("q").addEventListener("click",quiz);
-document.getElementById("q").addEventListener("click",question);
+document.getElementsByTagName("h3")[0].addEventListener("click",quiz);
+document.getElementsByTagName("h3")[0].addEventListener("click",question);
 
 
 document.getElementById("a1").addEventListener("click",check);
@@ -253,5 +253,9 @@ function end() {
 const mondai = document.getElementById('mondai');
 const kaito = document.getElementById('kaito');
 
+function nextr (){
+  r = Math.floor(Math.random()*4);
+}
 
 mask.addEventListener('click', end);
+mask.addEventListener('click', nextr);
