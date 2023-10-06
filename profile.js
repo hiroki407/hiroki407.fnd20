@@ -205,7 +205,7 @@ function answerC(){
 if(qa[r][3] === qa[r][4]){
 checkAnswer.innerText = "正解!閲覧ありがとうございました!"
 } else {
-checkAnswer.innerText = "はずれです。ちゃんと見た!?!"
+checkAnswer.innerText = "はずれです。ちゃんと見た!?"
 } 
 }
 
