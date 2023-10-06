@@ -157,4 +157,101 @@ function addNews (array) {
   
 addNews(["9/17 希唯ちゃん七五三の写真を撮りました!","9/29 礼ちゃん1歳になりました!","10/22 冴音マルシェ出店!"]);
 
+// 問題を用意
+const quizArray =[
+  ["Kiiの好きなものは?", "パパ","ママ","チョコレート","パパ"],
+  ["Reiの好きなものは?", "パパ","ママ","クッキー","ママ"],
+  ["Reiの誕生日はいつ?", "1/29","6/29","9/29","9/29"],
+  ["Saeneは10/22に何をする?", "ランチ","買い物","マルシェ","マルシェ"]
+];
 
+const qa = quizArray;
+
+
+// 問題を配置
+const Question = document.getElementById("Q"); 
+const answer1 = document.getElementById("a1");
+const answer2 = document.getElementById("a2");
+const answer3 = document.getElementById("a3");
+
+let r = Math.floor(Math.random()*4);
+
+function quiz(){
+
+Question.innerText = qa[r][0];
+answer1.innerHTML = qa[r][1];
+answer2.innerHTML = qa[r][2];
+answer3.innerHTML = qa[r][3];
+}
+
+
+// 成否
+const checkAnswer = document.getElementById("cA");
+function answerA(){
+if(qa[r][1] === qa[r][4]){
+checkAnswer.innerText = "正解!閲覧ありがとうございました!"
+} else {
+checkAnswer.innerText = "はずれです。ちゃんと見た!?"
+} 
+}
+function answerB(){
+if(qa[r][2] === qa[r][4]){
+checkAnswer.innerText = "正解!閲覧ありがとうございました!"
+} else {
+checkAnswer.innerText = "はずれです。ちゃんと見た!?"
+} 
+}
+function answerC(){
+if(qa[r][3] === qa[r][4]){
+checkAnswer.innerText = "正解!閲覧ありがとうございました!"
+} else {
+checkAnswer.innerText = "はずれです。ちゃんと見た!?!"
+} 
+}
+
+document.getElementById("q").addEventListener("click",quiz);
+document.getElementById("q").addEventListener("click",question);
+
+
+document.getElementById("a1").addEventListener("click",check);
+document.getElementById("a1").addEventListener("click",answerA);
+
+document.getElementById("a2").addEventListener("click",check);
+document.getElementById("a2").addEventListener("click",answerB);
+
+
+document.getElementById("a3").addEventListener("click",check);
+document.getElementById("a3").addEventListener("click",answerC);
+
+
+function question() {
+
+  mask.classList.remove('hidden');
+
+  mondai.classList.remove('hidden');
+
+}
+
+function check() {
+
+  kaito.classList.remove('hidden');
+
+  mondai.classList.add('hidden');
+
+}
+
+function end() {
+
+  kaito.classList.add('hidden');
+
+  mask.classList.add('hidden');
+
+  mondai.classList.add('hidden');
+
+}
+
+const mondai = document.getElementById('mondai');
+const kaito = document.getElementById('kaito');
+
+
+mask.addEventListener('click', end);
